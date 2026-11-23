@@ -46,7 +46,7 @@ footer{border-top:2px solid var(--txt);margin-top:40px;padding-top:12px;font-siz
 <div class="marca">Raio-X do Imóvel · fase de teste</div>
 <h1>Raio-X do Imóvel</h1>
 <p class="lead">Cole o link do imóvel da Caixa e receba a lista de problemas do anúncio e da matrícula, com o custo estimado de cada um.</p>
-<button type="button" class="abrir">Quero o raio-x do meu imóvel</button>
+<button type="button" class="abrir"><span class="rot-btn">Quero o raio-x do meu imóvel</span> — <span class="preco"></span></button>
 
 <h2>O que o relatório traz</h2>
 <ul>
@@ -100,9 +100,9 @@ footer{border-top:2px solid var(--txt);margin-top:40px;padding-top:12px;font-siz
 </section>
 
 <h2>Peça o seu</h2>
-<button type="button" class="abrir">Quero o raio-x do meu imóvel</button>
+<button type="button" class="abrir"><span class="rot-btn">Quero o raio-x do meu imóvel</span> — <span class="preco"></span></button>
 <form id="form" hidden>
-<p>Estamos em fase de teste. Os primeiros pedidos recebem o relatório de graça por e-mail.</p>
+<p>O pagamento ainda não está aberto. Estamos em fase de teste: os 5 primeiros pedidos recebem o relatório sem custo, por e-mail. Depois disso, o relatório custa <span class="preco"></span>.</p>
 <label for="imovel">Link ou número do imóvel na Caixa</label>
 <input id="imovel" name="imovel" required autocomplete="off">
 <label for="email">Seu e-mail</label>
@@ -115,6 +115,8 @@ footer{border-top:2px solid var(--txt);margin-top:40px;padding-top:12px;font-siz
 </main>
 <script>
 const DESTINO_FORMULARIO = "";
+const PRECO = "R$ 39";
+document.querySelectorAll(".preco").forEach(function(e){e.textContent = PRECO;});
 const form = document.getElementById("form");
 document.querySelectorAll(".abrir").forEach(function(b){
   b.addEventListener("click", function(){
