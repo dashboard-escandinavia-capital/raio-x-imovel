@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raio-X do Imóvel — triagem de imóvel de leilão</title>
+<meta name="description" content="Cole o link do imóvel e receba a lista de problemas do anúncio e da matrícula, com o custo estimado de cada um.">
+<style>
+:root{--cor:#8a3b12;--txt:#1d1d1b;--mut:#5c5c58;--lin:#d9d6cf;--fundo:#fcfbf8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--txt);font:17px/1.55 Georgia,"Times New Roman",serif}
+main{max-width:760px;margin:0 auto;padding:24px 16px 40px}
+h1{font-size:2rem;margin:0 0 8px;line-height:1.2}
+h2{font-size:1.3rem;margin:40px 0 12px;border-bottom:2px solid var(--cor);padding-bottom:4px}
+h3{font-size:1.1rem;margin:20px 0 6px}
+.marca{color:var(--cor);font:600 .85rem system-ui,sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.lead{font-size:1.15rem}
+ul{padding-left:20px}li{margin:4px 0}
+.ex{border:1px solid var(--lin);background:#fff;padding:16px;margin:20px 0}
+.rot{font:600 .8rem system-ui,sans-serif;color:var(--cor);text-transform:uppercase}
+.ver{border-left:4px solid var(--cor);padding:4px 12px;margin:12px 0;font-weight:bold}
+table{width:100%;border-collapse:collapse;font-size:.95rem;margin:8px 0}
+th,td{text-align:left;vertical-align:top;padding:8px;border-bottom:1px solid var(--lin)}
+th{font:600 .8rem system-ui,sans-serif;text-transform:uppercase;color:var(--mut)}
+td:first-child{font-weight:600;width:48%}
+@media(max-width:520px){
+ thead{display:none}
+ tr{display:block;border-bottom:1px solid var(--lin);padding:6px 0}
+ td{display:block;border:0;padding:2px 0;width:auto!important}
+ td+td::before{content:attr(data-r)": ";color:var(--mut);font:600 .8rem system-ui,sans-serif}
+ h1{font-size:1.6rem}
+}
+button,.btn{background:var(--cor);color:#fff;border:0;padding:14px 22px;font:600 1rem system-ui,sans-serif;cursor:pointer;width:100%;max-width:340px}
+button:focus,input:focus{outline:3px solid #222;outline-offset:2px}
+form{border:1px solid var(--lin);background:#fff;padding:16px;margin-top:16px}
+label{display:block;font:600 .9rem system-ui,sans-serif;margin:12px 0 4px}
+input{width:100%;padding:10px;font:1rem system-ui,sans-serif;border:1px solid #888}
+form button{margin-top:16px}
+[hidden]{display:none}
+#msg{margin-top:12px;font-weight:bold}
+footer{border-top:2px solid var(--txt);margin-top:40px;padding-top:12px;font-size:.9rem;color:var(--txt)}
+</style>
+</head>
+<body>
+<main>
+<div class="marca">Raio-X do Imóvel · fase de teste</div>
+<h1>Raio-X do Imóvel</h1>
+<p class="lead">Cole o link do imóvel da Caixa e receba a lista de problemas do anúncio e da matrícula, com o custo estimado de cada um.</p>
+<button type="button" class="abrir">Quero o raio-x do meu imóvel</button>
+
+<h2>O que o relatório traz</h2>
+<ul>
+<li>Ocupação informada ou não</li>
+<li>Ônus na matrícula (penhora, hipoteca, indisponibilidade)</li>
+<li>Como foi a intimação dos devedores</li>
+<li>Construção averbada ou não</li>
+<li>Quem paga IPTU e condomínio atrasados</li>
+<li>Data da certidão</li>
+<li>Conta final estimada (preço mínimo + ITBI, registro e débitos)</li>
+</ul>
+
+<h2>Dois exemplos reais</h2>
+
+<section class="ex">
+<div class="rot">Exemplo real — endereço omitido</div>
+<h3>Exemplo 1 — Terreno de 630 m², capital da região Norte</h3>
+<div class="ver">Veredito: tem problema contornável; não dá para chamar de limpo sem três checagens.</div>
+<p><b>Ficha:</b> avaliação da Caixa R$ 310.000. Preço mínimo R$ 179.821,49 (desconto de 41,99%). Venda online; recursos próprios ou financiamento, sem FGTS.</p>
+<table>
+<thead><tr><th>Problema</th><th>Gravidade e custo</th></tr></thead>
+<tbody>
+<tr><td>Devedores não localizados, intimação por edital</td><td data-r="Gravidade">Média. Risco de ação para anular a consolidação.</td></tr>
+<tr><td>Ocupação não informada no anúncio</td><td data-r="Gravidade">Média.</td></tr>
+<tr><td>IPTU atrasado fica com o comprador se for menor que 10% da avaliação</td><td data-r="Custo">Até R$ 31.000 no pior caso.</td></tr>
+<tr><td>Certidão da matrícula vencida</td><td data-r="Gravidade">Baixa. Custo de uma certidão nova.</td></tr>
+<tr><td>A prefeitura avaliou o imóvel em R$ 86.450,28 para o ITBI da consolidação, muito abaixo da avaliação da Caixa</td><td data-r="Gravidade">A conferir com preço de mercado.</td></tr>
+<tr><td>Endereço sem número e rua renomeada</td><td data-r="Gravidade">Baixa.</td></tr>
+</tbody>
+</table>
+<p><b>O que está bom:</b> nenhuma penhora, hipoteca, indisponibilidade ou ação averbada; leilões negativos averbados segundo o anúncio.</p>
+<p><b>Não deu para verificar pelos documentos:</b> processos em nome dos ex-proprietários, estado real do lote, débito de IPTU, preço de mercado.</p>
+<p><b>Conta (estimativa):</b> ITBI, escritura e registro R$ 7 a 12 mil; IPTU de zero a R$ 31 mil; total provável R$ 187 a 223 mil, contra R$ 310 mil de avaliação.</p>
+</section>
+
+<section class="ex">
+<div class="rot">Exemplo real — endereço omitido</div>
+<h3>Exemplo 2 — Casa, capital da região Norte</h3>
+<div class="ver">Veredito: papel mais limpo que o exemplo 1; falta visitar o imóvel.</div>
+<p><b>Ficha:</b> avaliação da Caixa R$ 259 mil. Preço mínimo R$ 146.284,32, só com recursos próprios.</p>
+<p><b>O que está bom:</b> intimação regular dos devedores; nenhum ônus de terceiros; leilões negativos averbados segundo o anúncio; a prefeitura avaliou em R$ 180.312,62 para o ITBI da consolidação e a última venda registrada foi de R$ 158.000 (2015) — o mínimo fica abaixo dos dois.</p>
+<table>
+<thead><tr><th>Problema</th><th>Custo</th></tr></thead>
+<tbody>
+<tr><td>Ocupação e estado da casa não informados</td><td data-r="Custo">Desocupação e reforma não estão na conta.</td></tr>
+<tr><td>IPTU atrasado pode ficar com o comprador</td><td data-r="Custo">De zero a R$ 25,9 mil.</td></tr>
+<tr><td>Só aceita pagamento à vista</td><td data-r="Custo">Exige o valor todo disponível.</td></tr>
+</tbody>
+</table>
+<p><b>Conta (estimativa):</b> ITBI, escritura e registro R$ 6 a 10 mil; total provável R$ 152 a 182 mil, contra R$ 259 mil de avaliação, fora desocupação e reforma.</p>
+</section>
+
+<h2>Peça o seu</h2>
+<button type="button" class="abrir">Quero o raio-x do meu imóvel</button>
+<form id="form" hidden>
+<p>Estamos em fase de teste. Os primeiros pedidos recebem o relatório de graça por e-mail.</p>
+<label for="imovel">Link ou número do imóvel na Caixa</label>
+<input id="imovel" name="imovel" required autocomplete="off">
+<label for="email">Seu e-mail</label>
+<input id="email" name="email" type="email" required autocomplete="email">
+<button type="submit">Enviar pedido</button>
+<div id="msg" role="status"></div>
+</form>
+
+<footer>Triagem de documentos públicos (anúncio e matrícula). Não é parecer jurídico nem recomendação de compra. Valores são estimativas. Antes de fazer proposta, visite o imóvel e consulte um advogado.</footer>
+</main>
+<script>
+const DESTINO_FORMULARIO = "";
+const form = document.getElementById("form");
+document.querySelectorAll(".abrir").forEach(function(b){
+  b.addEventListener("click", function(){
+    try { localStorage.setItem("raiox_cliques", String((parseInt(localStorage.getItem("raiox_cliques"),10)||0)+1)); } catch(e){}
+    form.hidden = false;
+    form.scrollIntoView({behavior:"smooth", block:"center"});
+    document.getElementById("imovel").focus({preventScroll:true});
+  });
+});
+form.addEventListener("submit", function(ev){
+  ev.preventDefault();
+  var msg = document.getElementById("msg");
+  if(!DESTINO_FORMULARIO){ msg.textContent = "Em breve."; return; }
+  fetch(DESTINO_FORMULARIO,{method:"POST",body:new FormData(form)})
+    .then(function(){ msg.textContent = "Pedido recebido."; form.reset(); })
+    .catch(function(){ msg.textContent = "Não foi possível enviar. Tente mais tarde."; });
+});
+</script>
+</body>
+</html>
